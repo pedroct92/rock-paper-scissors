@@ -1,0 +1,74 @@
+body {
+    background: linear-gradient(
+    to right,
+    #ff930f, /* Citrus Shine colors */
+    #fff95b);
+}
+
+.container {
+  max-width: 960px;
+}
+
+.image-radio-group input[type="radio"] {
+  display: none; /* Hide the actual radio button */
+}
+
+.image-radio-group label {
+  cursor: pointer; /* Makes the image clickable */
+  display: inline-block;
+  border: 2px solid #ccc; /* Default border style */
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.image-radio-group label img {
+  width: 100px;
+  height: 100px;
+  display: block;
+}
+
+/* Style for the selected (checked) image */
+.image-radio-group input[type="radio"]:checked + label {
+  border-color: #ff930f; /* Highlight color when checked */
+  background-color: #fff95b;
+}
+
+.image-radio-group label:hover {
+  border-color: #aaa;
+}
+
+.shakable {
+  /* empty selector to apply shakable pseudo class.*/
+}
+
+/* Apply the animation when hovering over the button */
+.shakable:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Keyframes for the shake animation */
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.not-clickable-div {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default; /* Optional: Changes cursor to default arrow instead of pointer */
+}
