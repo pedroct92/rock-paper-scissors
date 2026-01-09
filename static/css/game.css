@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 960px;
+  max-width: 510px;
 }
 
 .image-radio-group input[type="radio"] {
@@ -24,8 +24,8 @@ body {
 }
 
 .image-radio-group label img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   display: block;
 }
 
