@@ -17,7 +17,7 @@ setup_logging()
 app = Flask(__name__)
 logger = app.logger
 app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, cors_allowed_origins="*", logger=True, engineio_logger=True)
+socketio = SocketIO(app, async_mode='eventlet', cors_allowed_origins="*", logger=True, engineio_logger=True)
 
 app_game = Game()
 
