@@ -72,3 +72,29 @@ body {
   pointer-events: none;
   cursor: default; /* Optional: Changes cursor to default arrow instead of pointer */
 }
+
+.flash-button {
+  background-color: #004A7F;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  /* Apply the animation */
+  animation: glowing 1500ms infinite; /* 1.5s duration, infinite loop */
+}
+
+@keyframes glowing {
+  0% {
+    background-color: #B20000; /* Start color */
+    box-shadow: 0 0 3px #B20000;
+  }
+  50% {
+    background-color: #FF0000; /* Midpoint flash color */
+    box-shadow: 0 0 20px #FF0000;
+  }
+  100% {
+    background-color: #B20000; /* Return to start color */
+    box-shadow: 0 0 3px #B20000;
+  }
+}

@@ -125,31 +125,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const theyUsername = document.getElementById('they-username');
 
         if (isPLaying) {
-            const banner = document.getElementById('banner-alert');
+            const playAgain = document.getElementById('banner-play-again');
 
             if (msg.match?.result === 'tie') {
-                banner.innerHTML = `You got a tie 👔 <button onclick="window.location.reload()" class="btn btn-outline-primary">Play again!</button>`
-                banner.classList.add('show');
+                playAgain.innerHTML = `<button onclick="window.location.reload()" class="flash-button">Tie 😑, play again!</button>`;
+                confetti({
+                  shapes: [confetti.shapeFromText({ text: '😑', scalar: 10 })],
+                });
             } else if (msg.match?.result === 'won') {
                 if (youPlayerEl.textContent === msg.match?.username) {
+                    playAgain.innerHTML = `<button onclick="window.location.reload()" class="flash-button">You won 🏆, play again!</button>`;
                     confetti({
                       particleCount: 100,
                       spread: 70,
                       origin: { y: 0.6 }
                     });
-                    banner.innerHTML = `You WON 🎊🎊🎊 <button onclick="window.location.reload()" class="btn btn-outline-primary">Play again!</button>`
                 } else {
-                    const scalar = 4;
-                    const pineapple = confetti.shapeFromText({ text: '🥺', scalar });
-
+                    playAgain.innerHTML = `<button onclick="window.location.reload()" class="flash-button">You lost 🪦, play again!</button>`;
                     confetti({
-                      shapes: [pineapple],
-                      scalar
+                      shapes: [confetti.shapeFromText({ text: '🪦', scalar: 10 })],
                     });
-
-                    banner.innerHTML = `You LOST 😔😔😔 <button onclick="window.location.reload()" class="btn btn-outline-primary">Play again!</button>`
                 }
-                banner.classList.add('show');
             }
         }
 
