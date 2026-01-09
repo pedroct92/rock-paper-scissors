@@ -132,8 +132,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 banner.classList.add('show');
             } else if (msg.match?.result === 'won') {
                 if (youPlayerEl.textContent === msg.match?.username) {
+                    confetti({
+                      particleCount: 100,
+                      spread: 70,
+                      origin: { y: 0.6 }
+                    });
                     banner.innerHTML = `You WON 🎊🎊🎊 <button onclick="window.location.reload()" class="btn btn-outline-primary">Play again!</button>`
                 } else {
+                    const scalar = 4;
+                    const pineapple = confetti.shapeFromText({ text: '🥺', scalar });
+
+                    confetti({
+                      shapes: [pineapple],
+                      scalar
+                    });
+
                     banner.innerHTML = `You LOST 😔😔😔 <button onclick="window.location.reload()" class="btn btn-outline-primary">Play again!</button>`
                 }
                 banner.classList.add('show');
