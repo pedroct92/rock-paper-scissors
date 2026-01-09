@@ -1,3 +1,6 @@
+import eventlet
+eventlet.monkey_patch()
+
 from threading import Lock
 from flask import Flask, session, request, render_template
 from flask_socketio import SocketIO, emit
